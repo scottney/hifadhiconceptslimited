@@ -111,7 +111,11 @@
 		background: rgba(0, 0, 0, 0.75);
 	}
 
-	  #statisticsCounterTitle, #portFolioNumber, #portFolioIcon, #portFolioText {
+	#results_oriented_card, #frequently_asked_questions_card, #uniqueBackground {
+		background: #6EC1E4;
+	}
+
+	 #statisticsCounterTitle, #portFolioNumber, #portFolioIcon, #portFolioText, #frequentlyAskedQuestionsTitle, #howItWorksTitle {
 	  	color: #FFFFFF;
 	}
 
@@ -238,19 +242,6 @@
 
 	#uniqueBackground {
 		width: 100%;
-		height: 400px;
-	}
-
-	#uniqueBackgroundImage {
-		width: 100%;
-		height: 355px;
-		border-radius: 25px;
-		box-shadow: 2px 2px 2px 2px #FFFFFF;
-		background-image: url('https://hifadhiconcepts.co.ke/wp-content/uploads/2023/06/stacks-coins-arranged-bar-graph-scaled.jpg');
-		background-position: center;
-		background-repeat: no-repeat;
-    	background-size: cover;
-    	margin-top: 20px;
 	}
 
 	#uniqueBackgroundText {
@@ -264,6 +255,21 @@
         height: 375px;
     }
 
+    #howItWorksBackground {
+    	width: 100%;
+    	height: 400px;
+    	background-image: url('https://hifadhiconcepts.co.ke/wp-content/uploads/2023/06/land_19.jpeg');
+		background-position: center;
+		background-repeat: no-repeat;
+    	background-size: cover;
+    	background-attachment: fixed;
+    }
+
+    #location_and_price_plus_icon:hover, #plan_site_visit_plus_icon:hover, #plot_booking_and_payment_plus_icon:hover, 
+    #plot_fencing_plus_icon:hover, #title_and_payment_completion_plus_icon:hover {
+    	cursor: pointer;
+    }
+
     .swiper-slide {
         width: 300px;
         height: 300px;
@@ -273,17 +279,32 @@
         -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0006);
     }
 
-    #viewProjects {
+    #question_faq_container {
+    	background: #2E6182;
+    	border-left: 1px solid #FFFFFF;
+    }
+
+    #question_q, #question_q_question {
     	color: #FFFFFF;
     }
 
-    #viewProjects span {
-    	font-size: 20px;
+    #question_q {
+    	font-size: 30px;
+    	font-weight: 600;
     }
 
-    #viewProjects:hover {
-    	color: #FFA500;
-    	cursor: pointer;
+    #answer_faq_container {
+    	background: #0B171F;
+    	border-right: 1px solid #FFFFFF;
+    }
+
+    #answer_a, #answer_a_answer {
+    	color: #CCFFFF;
+    }
+
+    #answer_a {
+    	font-size: 30px;
+    	font-weight: 600;
     }
 
     #footerLink {
@@ -460,6 +481,79 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 			  	// },
 			});
 		}
+
+		// Start of the functions that handles the how it works descriptions
+		$(document).ready(function() {
+		    var location_and_price_description = $('#location_and_price_description');
+		    var plan_site_visit_description = $('#plan_site_visit_description');
+		    var plot_booking_and_payment_description = $('#plot_booking_and_payment_description');
+		    var plot_fencing_description = $('#plot_fencing_description');
+		    var title_and_payment_completion_description = $('#title_and_payment_completion_description');
+
+		    location_and_price_description.hide();
+		    plan_site_visit_description.hide();
+		    plot_booking_and_payment_description.hide();
+		    plot_fencing_description.hide();
+		    title_and_payment_completion_description.hide();
+
+		    var location_and_price_plus_icon = $('#location_and_price_plus_icon');
+		    var plan_site_visit_plus_icon = $('#plan_site_visit_plus_icon');
+		    var plot_booking_and_payment_plus_icon = $('#plot_booking_and_payment_plus_icon');
+		    var plot_fencing_plus_icon = $('#plot_fencing_plus_icon');
+		    var title_and_payment_completion_plus_icon = $('#title_and_payment_completion_plus_icon');
+
+		    location_and_price_plus_icon.click(function() {
+		        if (location_and_price_description.css('display') === 'none') {
+		            location_and_price_description.show();
+		            location_and_price_plus_icon.attr('class', 'fa-solid fa-minus float-end');
+		        } else {
+		            location_and_price_description.hide();
+		            location_and_price_plus_icon.attr('class', 'fa-solid fa-plus float-end');
+		        }
+		    });
+
+		    plan_site_visit_plus_icon.click(function() {
+		        if (plan_site_visit_description.css('display') === 'none') {
+		            plan_site_visit_description.show();
+		            plan_site_visit_plus_icon.attr('class', 'fa-solid fa-minus float-end');
+		        } else {
+		            plan_site_visit_description.hide();
+		            plan_site_visit_plus_icon.attr('class', 'fa-solid fa-plus float-end');
+		        }
+		    });
+
+		    plot_booking_and_payment_plus_icon.click(function() {
+		        if (plot_booking_and_payment_description.css('display') === 'none') {
+		            plot_booking_and_payment_description.show();
+		            plot_booking_and_payment_plus_icon.attr('class', 'fa-solid fa-minus float-end');
+		        } else {
+		            plot_booking_and_payment_description.hide();
+		            plot_booking_and_payment_plus_icon.attr('class', 'fa-solid fa-plus float-end');
+		        }
+		    });
+
+		    plot_fencing_plus_icon.click(function() {
+		        if (plot_fencing_description.css('display') === 'none') {
+		            plot_fencing_description.show();
+		            plot_fencing_plus_icon.attr('class', 'fa-solid fa-minus float-end');
+		        } else {
+		            plot_fencing_description.hide();
+		            plot_fencing_plus_icon.attr('class', 'fa-solid fa-plus float-end');
+		        }
+		    });
+
+		    title_and_payment_completion_plus_icon.click(function() {
+		        if (title_and_payment_completion_description.css('display') === 'none') {
+		            title_and_payment_completion_description.show();
+		            title_and_payment_completion_plus_icon.attr('class', 'fa-solid fa-minus float-end');
+		        } else {
+		            title_and_payment_completion_description.hide();
+		            title_and_payment_completion_plus_icon.attr('class', 'fa-solid fa-plus float-end');
+		        }
+		    });
+
+		});
+
 	</script>
 
 
